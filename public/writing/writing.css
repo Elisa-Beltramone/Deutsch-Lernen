@@ -1,0 +1,39 @@
+/* Mistakes underline with tooltip */
+.mistake {
+    border-bottom: 2px solid #dc2626;
+    cursor: help;
+    position: relative;
+    text-decoration: none; 
+  }
+  
+  /* Tooltip container */
+  .mistake::after {
+    content: attr(data-tip); 
+    position: absolute;
+    left: 0;
+    background: #111; 
+    color: white;
+    padding: 6px 8px;
+    font-size: 13px;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all 0.15s ease;
+    pointer-events: none;
+    z-index: 100;
+    min-width: 120px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  
+  /* Show tooltip on hover */
+  .mistake:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Corrected text styling */
+  .corrected {
+    color: #16a34a;
+    font-weight: 600;
+  }

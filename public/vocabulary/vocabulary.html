@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>German Vocabulary Trainer | Deutsch Lernen</title>
+
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="vocabulary.css">
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <h1>Deutsch Lernen</h1>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../writing/writing.html">Writing Practice</a></li>
+        <li><a href="../reading/reading.html">Reading Comprehension</a></li>
+        <li><a href="vocabulary.html">Vocabulary</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="intro" id="intro">
+
+      <h2>German Vocabulary Trainer</h2>
+
+      <p>
+        Save German words you want to remember and practice them later.
+      </p>
+
+    </section>
+
+    <!-- Dashboard Cards -->
+    <section class="practice-sections" id="dashboard-cards">
+      <article class="practice-card" id="card-add">
+        <h3>Add a New Word</h3>
+        <p>Save a German word with translation and example sentence.</p>
+        <button class="start-btn">Add a New Word</button>
+      </article>
+
+      <article class="practice-card" id="card-list">
+        <h3>Vocabulary List</h3>
+        <p>Review all your saved German words and examples.</p>
+        <button class="start-btn">Vocabulary List</button>
+      </article>
+
+      <article class="practice-card" id="card-practice">
+        <h3>Practice</h3>
+        <p>Test your knowledge with random words from your list.</p>
+        <button class="start-btn">Practice</button>
+      </article>
+    </section>
+
+
+    <!-- ADD WORD SECTION -->
+
+    <section class="vocab-input" id="add-word-section">
+
+      <h3>Add a new word</h3>
+
+      <label>German word</label>
+      <input id="word-input" type="text" placeholder="z.B. lernen">
+
+      <label>Translation</label>
+      <input id="translation-input" type="text" placeholder="to learn">
+
+      <label>Example sentence</label>
+      <input id="example-input" type="text" placeholder="Ich lerne Deutsch.">
+
+      <button id="add-word-btn">Add Word</button>
+
+    </section>
+
+
+    <!-- WORD LIST -->
+
+    <section class="vocab-list" id="list-section">
+
+      <h3>Your Vocabulary</h3>
+
+      <ul id="word-list"></ul>
+
+    </section>
+
+
+    <!-- PRACTICE SECTION -->
+
+    <section class="practice-section" id="practice-section">
+
+      <h3>Practice</h3>
+
+      <div id="practice-box" class="hidden">
+
+        <p id="practice-word"></p>
+
+        <button id="give-sentence">Use in a sentence</button>
+
+        <p class="hidden" id="sentence"></p>
+
+        <input id="practice-answer" placeholder="Type the translation">
+
+        <button id="check-answer">Check</button>
+
+        <p id="practice-feedback"></p>
+
+        <button class="start-btn" id="next-word">Next</button>
+
+      </div>
+
+    </section>
+
+    <section id="menu-options">
+      <button class="start-btn">Back</button>
+    </section>
+
+  </main>
+
+
+  <footer>
+    <p>&copy; 2026 Deutsch Lernen. All rights reserved.</p>
+
+    <p>Übe jeden Tag Deutsch und verbessere deine Fähigkeiten!</p>
+  </footer>
+
+  <script src="vocabulary.js"></script>
+
+</body>
+
+</html>

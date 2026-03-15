@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Practice German reading comprehension exercises from A1 to B2 levels. Improve your Deutsch reading skills with interactive exercises.">
+  <title>German Reading Practice | Deutsch Lernen</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+  <header>
+    <nav aria-label="Main navigation">
+      <div class="logo">
+        <h1>Deutsch Lernen</h1>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../writing/writing.html">Writing Practice</a></li>
+        <li><a href="#">Reading Comprehension</a></li>
+        <li><a href="../vocabulary/vocabulary.html">Vocabulary</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Intro -->
+    <section class="intro">
+      <h2>German Reading Practice</h2>
+      <p>Choose your level and test your reading comprehension in German.</p>
+    </section>
+
+    <!-- LEVEL SELECTION -->
+    <section class="levels-explanation" id="level-selection">
+
+      <article class="level-card">
+        <h3>A1 – Beginner</h3>
+        <p>Understand very simple sentences about daily life.</p>
+        <button type="button" class="start-btn level-btn" data-level="A1" aria-label="Start A1 reading exercise">Start A1 Reading</button>
+      </article>
+
+      <article class="level-card">
+        <h3>A2 – Elementary</h3>
+        <p>Read short paragraphs about everyday situations.</p>
+        <button type="button" class="start-btn level-btn" data-level="A2">Start A2 Reading</button>
+      </article>
+
+      <article class="level-card">
+        <h3>B1 – Intermediate</h3>
+        <p>Understand longer texts and identify main ideas.</p>
+        <button type="button" class="start-btn level-btn" data-level="B1">Start B1 Reading</button>
+      </article>
+
+      <article class="level-card">
+        <h3>B2 – Upper Intermediate</h3>
+        <p>Read complex texts and understand arguments.</p>
+        <button type="button" class="start-btn level-btn" data-level="B2">Start B2 Reading</button>
+      </article>
+
+    </section>
+
+
+    <!-- READING EXERCISE -->
+    <section id="reading-section" class="hidden">
+
+      <h2 id="reading-title"></h2>
+
+      <div class="reading-text" id="reading-text"></div>
+
+      <section id="questions-container"></section>
+
+      <button class="start-btn hidden" id="submit-reading">Submit Answers</button>
+      <button class="start-btn hidden" id="new-reading">New Exercise</button>
+
+      <section id="reading-feedback" class="hidden">
+        <h3>Results</h3>
+        <div id="feedback-text"></div>
+      </section>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <small>&copy; 2026 Deutsch Lernen. All rights reserved.</small>
+    <p>Übe jeden Tag Deutsch und verbessere deine Fähigkeiten!</p>
+  </footer>
+
+  <script src="reading.js" ></script>
+
+</body>
+
+</html>

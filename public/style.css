@@ -1,0 +1,302 @@
+/* -------- RESET -------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* -------- BODY -------- */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+
+
+/* -------- HEADER -------- */
+header {
+    background: #1e3a8a;
+    color: white;
+    padding: 15px 40px;
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo h1 {
+    font-size: 1.5rem;
+}
+
+/* Navigation links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #93c5fd;
+}
+
+/* -------- MAIN -------- */
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* INTRO SECTION */
+.intro {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.intro h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* -------- PRACTICE SECTIONS -------- */
+.practice-sections {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* PRACTICE CARDS */
+.practice-card {
+    background: white;
+    padding: 25px;
+    max-width: 320px;
+    border-radius: 10px;
+    flex: 1 1 280px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.practice-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.practice-card h3 {
+    margin-bottom: 10px;
+}
+
+.practice-card p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* LEVEL LIST */
+.levels {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.start-btn {
+    display: block;      
+    width: 80%;                  
+    max-width: 250px; 
+    margin: 10px auto 0;
+    text-decoration: none;
+    background: #2563eb;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-weight: 500;
+    text-align: center;
+    transition: background 0.2s ease;
+}
+
+.start-btn:hover {
+    color: #010309;
+}
+
+/* -------- FOOTER -------- */
+footer {
+    background: #1f2937;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+}
+
+/* -------- RESPONSIVE DESIGN -------- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .practice-sections {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* -------- WRITING PAGE LEVELS -------- */
+.levels-explanation {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* Individual level card */
+.level-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.level-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.level-card h3 {
+    margin-bottom: 10px;
+    color: #1e3a8a;
+}
+
+.level-card p {
+    margin-bottom: 12px;
+    color: #555;
+}
+
+.level-card strong {
+    color: #111;
+}
+
+.hidden {
+    display: none;
+  }
+
+/* -------- A1 WRITING PAGE SPECIFIC -------- */
+.writing-exercise {
+    max-width: 800px;
+    margin: auto;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    margin-top: 10px;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+}
+
+button#submit-btn {
+    margin-top: 12px;
+    padding: 12px 22px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    background-color: #2563eb;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+button#submit-btn:hover {
+    background-color: #1e40af;
+}
+
+/* Word count display */
+#word-count {
+    font-weight: bold;
+    color: #1e3a8a;
+}
+
+/* AI Feedback box */
+#ai-feedback {
+    margin-top: 20px;
+}
+
+#feedback-text {
+    white-space: pre-wrap;
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    color: #111;
+}
+
+/* Spinner (for AI checking) */
+.spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(0,0,0,0.2);
+    border-top: 3px solid #2563eb;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments for writing page */
+@media (max-width: 768px) {
+    .writing-exercise {
+        padding: 0 15px;
+    }
+
+    textarea {
+        font-size: 15px;
+    }
+
+    button#submit-btn {
+        width: 100%;
+    }
+}
+
+/* -------- READING -------- */
+
+.correct { color: green; font-weight: bold; }
+.wrong { color: red; }
+
