@@ -1,5 +1,6 @@
 import express from "express";
 import { checkWriting, compareWriting } from "../services/aiService.js";
+import pool from "../db/db.js";
 
 const router = express.Router();
 
@@ -44,5 +45,25 @@ router.post("/:level", async (req, res) => {
     res.status(500).json({ error: "Server error checking German text." });
   }
 });
+
+router.post("/save-feedback", async (req, res) => {
+  const { feedback } = req.body;
+
+  if (!feedback) {
+    return res.status(400).send("No feedback provided");
+  }
+
+  try {
+    const result = await pool.query(
+      "INSERT INTO writings (content) VALUES ($1) RETURNING *",
+      [feedback]
+    );
+    res.json(result.rows[0]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error saving feedback");
+  }
+});
+
 
 export default router;
