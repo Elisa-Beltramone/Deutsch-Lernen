@@ -16,14 +16,14 @@
   <header>
     <nav>
       <div class="logo">
-        <h1>Deutsch Lernen</h1>
+        <a href="../index.html"><h1>Deutsch Lernen</h1></a>
       </div>
 
       <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
         <li><a href="../writing/writing.html">Writing Practice</a></li>
         <li><a href="../reading/reading.html">Reading Comprehension</a></li>
         <li><a href="vocabulary.html">Vocabulary</a></li>
+        <li><a href="../dashboard/progress.html">My Progress</a></li>
       </ul>
     </nav>
   </header>
@@ -74,9 +74,6 @@
       <label>Translation</label>
       <input id="translation-input" type="text" placeholder="to learn">
 
-      <label>Example sentence</label>
-      <input id="example-input" type="text" placeholder="Ich lerne Deutsch.">
-
       <button id="add-word-btn">Add Word</button>
 
     </section>
@@ -103,9 +100,9 @@
 
         <p id="practice-word"></p>
 
-        <button id="give-sentence">Use in a sentence</button>
+        <button class="start-btn" id="give-sentence">Use in a sentence</button>
 
-        <p class="hidden" id="sentence"></p>
+        <p class="sentence-example hidden" id="sentence"></p>
 
         <input id="practice-answer" placeholder="Type the translation">
 

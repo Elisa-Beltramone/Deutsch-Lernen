@@ -23,6 +23,13 @@ app.get("/users", async (req, res) => {
   res.json(result.rows);
 });
 
+app.get('/api/progress', async (req, res) => {
+  const result = await db.query(
+    'SELECT level, COUNT(*) as count FROM entries GROUP BY level'
+  );
+  res.json(result.rows);
+});
+
 app.post("/write", async (req, res) => {
   const { content } = req.body;
 

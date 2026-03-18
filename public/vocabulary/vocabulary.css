@@ -126,6 +126,14 @@
     color: #1e3a8a;
 }
 
+/* Sentence example */
+.sentence-example{
+    font-weight:  bold;
+    margin: 10px 0;
+    color: #1e40af;
+}
+
+
 /* Answer input */
 #practice-answer {
     width: 80%;
@@ -134,7 +142,7 @@
     border-radius: 6px;
     border: 1px solid #ccc;
     font-size: 16px;
-    margin-bottom: 15px;
+    margin: 15px 0;
     text-align: center;
 }
 

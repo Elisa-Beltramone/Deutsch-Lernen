@@ -32,6 +32,7 @@ nav {
 /* Logo */
 .logo h1 {
     font-size: 1.5rem;
+    color: #f5f5f5;
 }
 
 /* Navigation links */
@@ -90,13 +91,13 @@ main {
     max-width: 320px;
     border-radius: 10px;
     flex: 1 1 280px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .practice-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .practice-card h3 {
@@ -117,9 +118,9 @@ main {
 }
 
 .start-btn {
-    display: block;      
-    width: 80%;                  
-    max-width: 250px; 
+    display: block;
+    width: 80%;
+    max-width: 250px;
     margin: 10px auto 0;
     text-decoration: none;
     background: #2563eb;
@@ -172,7 +173,7 @@ footer {
     background: white;
     padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -181,7 +182,7 @@ footer {
 
 .level-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .level-card h3 {
@@ -200,7 +201,7 @@ footer {
 
 .hidden {
     display: none;
-  }
+}
 
 /* -------- A1 WRITING PAGE SPECIFIC -------- */
 .writing-exercise {
@@ -258,7 +259,7 @@ button#submit-btn:hover {
     background-color: #f5f5f5;
     padding: 15px;
     border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     color: #111;
 }
 
@@ -267,7 +268,7 @@ button#submit-btn:hover {
     display: inline-block;
     width: 18px;
     height: 18px;
-    border: 3px solid rgba(0,0,0,0.2);
+    border: 3px solid rgba(0, 0, 0, 0.2);
     border-top: 3px solid #2563eb;
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
@@ -276,8 +277,13 @@ button#submit-btn:hover {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Responsive adjustments for writing page */
@@ -297,6 +303,11 @@ button#submit-btn:hover {
 
 /* -------- READING -------- */
 
-.correct { color: green; font-weight: bold; }
-.wrong { color: red; }
+.correct {
+    color: green;
+    font-weight: bold;
+}
 
+.wrong {
+    color: red;
+}

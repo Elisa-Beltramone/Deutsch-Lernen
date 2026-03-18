@@ -1,6 +1,5 @@
 const wordInput = document.getElementById("word-input");
 const translationInput = document.getElementById("translation-input");
-const exampleInput = document.getElementById("example-input");
 
 const addBtn = document.getElementById("add-word-btn");
 const wordList = document.getElementById("word-list");
@@ -119,9 +118,6 @@ function renderWords() {
 
         const translation = document.createTextNode(` – ${item.translation}`);
 
-        const example = document.createElement("em");
-        example.textContent = item.example;
-
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "Delete";
 
@@ -129,7 +125,7 @@ function renderWords() {
             deleteWord(index);
         });
 
-        li.append(word, translation, document.createElement("br"), example, deleteBtn);
+        li.append(word, translation, document.createElement("br"), deleteBtn);
 
         wordList.appendChild(li);
     });
@@ -140,18 +136,16 @@ addBtn.addEventListener("click", () => {
 
     const word = wordInput.value.trim();
     const translation = translationInput.value.trim();
-    const example = exampleInput.value.trim();
 
     if (!word || !translation) return;
 
-    vocab.push({ word, translation, example });
+    vocab.push({ word, translation });
 
     saveWords();
     renderWords();
 
     wordInput.value = "";
     translationInput.value = "";
-    exampleInput.value = "";
 
 });
 
@@ -167,8 +161,6 @@ function deleteWord(index) {
 // -------- FETCH FOR SENTENCE --------
 
 async function giveSentenceFromAI(word) {
-
-    sentenceBtn.disabled = true;
 
     try {
 

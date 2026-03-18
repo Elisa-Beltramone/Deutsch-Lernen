@@ -7,6 +7,7 @@ const wordCountSpan = document.getElementById('word-count');
 const submitBtn = document.getElementById('submit-btn');
 const feedbackSection = document.getElementById('ai-feedback');
 const feedbackText = document.getElementById('feedback-text');
+const saveFeedbackBtn = document.getElementById("save-feedback-btn");
 const levelsSection = document.querySelector('.levels-explanation');
 const intro = document.querySelector('.intro');
 
@@ -158,6 +159,29 @@ ${highlighted}<br><br>
   const levelFromURL = params.get('level');
   if (levelFromURL) startWriting(levelFromURL);
 }
+
+// DATABASE
+
+saveFeedbackBtn.addEventListener("click", async () => {
+  const feedbackText = document.getElementById("feedback-text").innerText;
+
+  if (!feedbackText) return;
+
+  try {
+    const res = await fetch("/api/writing/save-feedback", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ feedback: feedbackText, level: level }),
+    });
+
+    const data = await res.json();
+    console.log("Saved:", data);
+    alert("Feedback saved!");
+  } catch (err) {
+    console.error("Error:", err);
+  }
+});
+
 
 // -------- CALL INIT --------
 initializeWriting();

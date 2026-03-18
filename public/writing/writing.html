@@ -16,14 +16,16 @@
   <header>
     <nav>
       <div class="logo">
-        <h1>Deutsch Lernen</h1>
+        <a href="../index.html">
+          <h1>Deutsch Lernen</h1>
+        </a>
       </div>
 
       <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
         <li><a href="#">Writing Practice</a></li>
         <li><a href="../reading/reading.html">Reading Comprehension</a></li>
         <li><a href="../vocabulary/vocabulary.html">Vocabulary</a></li>
+        <li><a href="../dashboard/progress.html">My Progress</a></li>
       </ul>
     </nav>
   </header>
@@ -33,35 +35,40 @@
     <!-- Introduction -->
     <section class="intro">
       <h2>German Writing Practice</h2>
-      <p>Choose your level and practice writing in German. Each level has a recommended word length to help you improve step by step.</p>
+      <p>Choose your level and practice writing in German. Each level has a recommended word length to help you improve
+        step by step.</p>
     </section>
 
     <!-- Level Selection -->
     <section class="levels-explanation">
       <article class="level-card">
         <h3>A1 – Beginner</h3>
-        <p>At the A1 level you write very simple sentences about yourself and everyday topics. You practice basic grammar and common vocabulary.</p>
+        <p>At the A1 level you write very simple sentences about yourself and everyday topics. You practice basic
+          grammar and common vocabulary.</p>
         <p><strong>Typical length:</strong> 30–50 words</p>
         <button class="start-btn" data-level="A1">Start A1 Writing Exercises</button>
       </article>
 
       <article class="level-card">
         <h3>A2 – Elementary</h3>
-        <p>At A2 you can write short paragraphs describing experiences, daily routines, or simple opinions. Sentences become longer and more connected.</p>
+        <p>At A2 you can write short paragraphs describing experiences, daily routines, or simple opinions. Sentences
+          become longer and more connected.</p>
         <p><strong>Typical length:</strong> 60–80 words</p>
         <button class="start-btn" data-level="A2">Start A2 Writing Exercises</button>
       </article>
 
       <article class="level-card">
         <h3>B1 – Intermediate</h3>
-        <p>At B1 you write structured paragraphs and short texts. You can explain opinions, describe events, and write informal emails.</p>
+        <p>At B1 you write structured paragraphs and short texts. You can explain opinions, describe events, and write
+          informal emails.</p>
         <p><strong>Typical length:</strong> 100–140 words</p>
         <button class="start-btn" data-level="B1">Start B1 Writing Exercises</button>
       </article>
 
       <article class="level-card">
         <h3>B2 – Upper Intermediate</h3>
-        <p>At B2 you can write detailed texts and arguments. You practice essays, formal emails, and structured explanations.</p>
+        <p>At B2 you can write detailed texts and arguments. You practice essays, formal emails, and structured
+          explanations.</p>
         <p><strong>Typical length:</strong> 150–180 words</p>
         <button class="start-btn" data-level="B2">Start B2 Writing Exercises</button>
       </article>
@@ -81,8 +88,11 @@
       <!-- AI Feedback container -->
       <section id="ai-feedback" style="margin-top: 20px; display:none;">
         <h3>AI Feedback:</h3>
-        <div id="feedback-text" style="white-space: pre-wrap; background:#f5f5f5; padding:15px; border-radius:6px;"></div>
+        <div id="feedback-text" style="white-space: pre-wrap; background:#f5f5f5; padding:15px; border-radius:6px;">
+        </div>
+        <button id="save-feedback-btn">Save Feedback</button>
       </section>
+
     </section>
 
   </main>
