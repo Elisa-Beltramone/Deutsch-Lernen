@@ -6,6 +6,9 @@ import { fileURLToPath } from "url";
 import writingRoutes from "./routes/writing.js";
 import readingRoutes from "./routes/reading.js";
 import vocabularyRoutes from "./routes/vocabularyRoute.js";
+import trackingRoutes from "./routes/tracking.js";
+import pool from "./db/db.js";
+
 
 dotenv.config();
 
@@ -24,10 +27,33 @@ app.get("/users", async (req, res) => {
 });
 
 app.get('/api/progress', async (req, res) => {
-  const result = await db.query(
-    'SELECT level, COUNT(*) as count FROM entries GROUP BY level'
+  const result = await pool.query(
+    'SELECT content, COUNT(*) as count FROM writings GROUP BY content'
   );
   res.json(result.rows);
+});
+
+app.get("/api/progress", async (req, res) => {
+  const userId = 1; // replace with logged-in user
+
+  const daily = await db.query(`
+    SELECT session_date, SUM(minutes_spent) as total
+    FROM user_activity
+    WHERE user_id = $1
+    GROUP BY session_date
+    ORDER BY session_date
+  `, [userId]);
+
+  const total = await db.query(`
+    SELECT SUM(minutes_spent) as total
+    FROM user_activity
+    WHERE user_id = $1
+  `, [userId]);
+
+  res.json({
+    daily: daily.rows,
+    total: total.rows[0].total
+  });
 });
 
 app.post("/write", async (req, res) => {
@@ -46,10 +72,13 @@ app.post("/write", async (req, res) => {
   }
 });
 
+
 /* ROUTES */
 app.use("/api/writing", writingRoutes); 
 app.use("/api/reading", readingRoutes); 
 app.use("/api/vocabulary", vocabularyRoutes);
+app.use("/api/tracking", trackingRoutes);
+
 
 
 /* STATIC FILES */

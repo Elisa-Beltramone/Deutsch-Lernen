@@ -161,6 +161,11 @@ ${highlighted}<br><br>
 }
 
 // DATABASE
+document.querySelectorAll(".start-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    currentLevel = btn.dataset.level;
+  });
+});
 
 saveFeedbackBtn.addEventListener("click", async () => {
   const feedbackText = document.getElementById("feedback-text").innerText;
@@ -171,7 +176,7 @@ saveFeedbackBtn.addEventListener("click", async () => {
     const res = await fetch("/api/writing/save-feedback", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ feedback: feedbackText, level: level }),
+      body: JSON.stringify({ feedback: feedbackText, level: currentLevel }),
     });
 
     const data = await res.json();

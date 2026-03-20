@@ -4,6 +4,26 @@ import pool from "../db/db.js";
 
 const router = express.Router();
 
+router.post("/save-feedback", async (req, res) => {
+  const { feedback, level } = req.body;
+
+  if (!feedback || !level) {
+    return res.status(400).json({ error: "Feedback and level required" });
+  }
+
+  try {
+    const result = await pool.query(
+      "INSERT INTO writings (content) VALUES ($1) RETURNING *",
+      [`${level}: ${feedback}`] // quick fix OR use separate column
+    );
+
+    res.json(result.rows[0]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Error saving feedback" });
+  }
+});
+
 router.post("/:level", async (req, res) => {
   const { text } = req.body;
   const level = req.params.level.toUpperCase(); // A1, A2, B1, B2
@@ -43,25 +63,6 @@ router.post("/:level", async (req, res) => {
   } catch (err) {
     console.error("Route error:", err);
     res.status(500).json({ error: "Server error checking German text." });
-  }
-});
-
-router.post("/save-feedback", async (req, res) => {
-  const { feedback } = req.body;
-
-  if (!feedback) {
-    return res.status(400).send("No feedback provided");
-  }
-
-  try {
-    const result = await pool.query(
-      "INSERT INTO writings (content) VALUES ($1) RETURNING *",
-      [feedback]
-    );
-    res.json(result.rows[0]);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Error saving feedback");
   }
 });
 

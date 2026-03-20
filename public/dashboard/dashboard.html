@@ -23,16 +23,23 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="../writing/writing.html">Writing Practice</a></li>
-                <li><a href="../reading/reading.html">Reading Comprehension</a></li>
+                <li><a href="../writing/writing.html">Writing</a></li>
+                <li><a href="../reading/reading.html">Reading</a></li>
                 <li><a href="../vocabulary/vocabulary.html">Vocabulary</a></li>
-                <li><a href="dashboard/progress.html">My Progress</a></li>
+                <li><a href="dashboard/dashboard.html">My Progress</a></li>
             </ul>
         </nav>
     </header>
+
     <main>
         <section class="intro">
-            <h2>Track your progress</h2>
+            <h2>Your progress</h2>
+            <p id="totalTime"></p>
+        </section>
+
+        <section class="progress">
+            <canvas id="myChart"></canvas>
+
         </section>
 
 
@@ -43,6 +50,9 @@
 
         <p>Übe jeden Tag Deutsch und verbessere deine Fähigkeiten!</p>
     </footer>
+    
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="dashboard.js"></script>
 
 </body>
 
