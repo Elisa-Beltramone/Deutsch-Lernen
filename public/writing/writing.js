@@ -36,7 +36,7 @@ function clearFeedback() {
 }
 
 function escapeHTML(str) {
-  return str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
 // -------- HIGHLIGHT MISTAKES (GROUPED) --------
@@ -44,7 +44,7 @@ function highlightMistakes(originalText, mistakes = []) {
   if (!mistakes.length) return escapeHTML(originalText);
 
   // Sort mistakes by length (longest first) to prevent nested replacements
-  mistakes.sort((a,b) => b.wrong.length - a.wrong.length);
+  mistakes.sort((a, b) => b.wrong.length - a.wrong.length);
 
   let highlighted = escapeHTML(originalText);
 
@@ -182,6 +182,8 @@ saveFeedbackBtn.addEventListener("click", async () => {
     const data = await res.json();
     console.log("Saved:", data);
     alert("Feedback saved!");
+    saveFeedbackBtn.style.display = 'none';
+
   } catch (err) {
     console.error("Error:", err);
   }

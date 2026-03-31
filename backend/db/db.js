@@ -5,12 +5,12 @@ dotenv.config();
 
 const { Pool } = pkg;
 
-const pool = new Pool({
+const db = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
-pool.on("connect", () => {
+db.on("connect", () => {
   console.log("✅ Connected to PostgreSQL");
 });
 
-export default pool;
+export default db;

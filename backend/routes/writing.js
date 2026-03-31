@@ -1,6 +1,6 @@
 import express from "express";
 import { checkWriting, compareWriting } from "../services/aiService.js";
-import pool from "../db/db.js";
+import db from "../db/db.js";
 
 const router = express.Router();
 
@@ -12,7 +12,7 @@ router.post("/save-feedback", async (req, res) => {
   }
 
   try {
-    const result = await pool.query(
+    const result = await db.query(
       "INSERT INTO writings (content) VALUES ($1) RETURNING *",
       [`${level}: ${feedback}`] // quick fix OR use separate column
     );
