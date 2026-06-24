@@ -1,8 +1,10 @@
 import pkg from "pg";
 import dotenv from "dotenv";
 
+dotenv.config();
+
 const { Pool } = pkg;
-console.log("PASSWORD:", process.env.DB_PASSWORD);
+
 const db = new Pool({
   connectionString: process.env.DATABASE_URL,
 });

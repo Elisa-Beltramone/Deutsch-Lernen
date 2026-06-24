@@ -10,7 +10,7 @@ import vocabularyRoutes from "./routes/api/vocabularyRoutes.js";
 import trackingRoutes from "./routes/api/trackingRoutes.js";
 import userRoutes from "./routes/api/userRoutes.js";
 import progressRoutes from "./routes/api/progressRoutes.js";
-import db from "./db/db.js";
+import authRoutes from "./routes/api/authRoutes.js";
 
 const app = express();
 
@@ -27,6 +27,8 @@ app.use("/api/writing", writingRoutes);
 app.use("/api/reading", readingRoutes);
 app.use("/api/vocabulary", vocabularyRoutes);
 app.use("/api/tracking", trackingRoutes);
+app.use("/api/auth", authRoutes);
+
 
 // static frontend
 const __filename = fileURLToPath(import.meta.url);

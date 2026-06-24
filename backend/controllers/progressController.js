@@ -1,18 +1,24 @@
 import db from "../db/db.js";
 
 export async function getProgress(req, res) {
-  const userId = 1;
-
   try {
-    const writings = await db.query(`
-      SELECT content, COUNT(*) as count
+    const userId = req.user.userId;
+
+    const writings = await db.query(
+      `
+      SELECT content, level, created_at
       FROM writings
-      GROUP BY content
-    `);
+      WHERE user_id = $1
+      ORDER BY created_at DESC
+      `,
+      [userId]
+    );
 
     const daily = await db.query(
       `
-      SELECT session_date, SUM(minutes_spent) as total
+      SELECT
+        session_date,
+        COALESCE(SUM(minutes_spent), 0) AS total
       FROM user_activity
       WHERE user_id = $1
       GROUP BY session_date
@@ -23,20 +29,22 @@ export async function getProgress(req, res) {
 
     const total = await db.query(
       `
-      SELECT SUM(minutes_spent) as total
+      SELECT
+        COALESCE(SUM(minutes_spent), 0) AS total
       FROM user_activity
       WHERE user_id = $1
       `,
       [userId]
     );
 
-    res.json({
+    res.status(200).json({
       daily: daily.rows,
-      total: total.rows[0].total,
-      result: writings.rows,
+      total: Number(total.rows[0].total),
+      writings: writings.rows,
     });
   } catch (err) {
-    console.error(err);
+    console.error("Progress controller error:", err);
+
     res.status(500).json({
       error: "Failed to fetch progress",
     });

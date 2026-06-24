@@ -1,7 +1,7 @@
 import db from "../db/db.js";
 
 export async function trackTime(req, res) {
-  const userId = 1;
+  const userId = req.user.userId;
   const { page, duration } = req.body;
 
   try {
