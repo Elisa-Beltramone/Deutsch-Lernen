@@ -4,23 +4,23 @@ A full-stack web application to help users practice and improve their German ski
 
 ---
 
-## 🚀 Features
+## Features
 
-- 📖 **Reading Practice (A1–B2)**  
+- **Reading Practice (A1–B2)**  
   AI-generated German reading texts with comprehension questions
 
-- ✍️ **Writing Practice**  
+- **Writing Practice**  
   AI-powered writing correction with grammar feedback and scoring
 
-- 📚 **Vocabulary Practice**  
+- **Vocabulary Practice**  
   Generate example sentences using selected German words
 
-- 📊 **Progress Tracking**  
+- **Progress Tracking**  
   Track user activity and learning progress over time
 
 ---
 
-## 🏗️ Tech Stack
+## Tech Stack
 
 ### Backend
 - Node.js
@@ -55,7 +55,7 @@ frontend/
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 1. Clone the repository
 ```bash
