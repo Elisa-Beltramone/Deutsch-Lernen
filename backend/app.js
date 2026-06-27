@@ -12,15 +12,20 @@ import userRoutes from "./routes/api/userRoutes.js";
 import progressRoutes from "./routes/api/progressRoutes.js";
 import authRoutes from "./routes/api/authRoutes.js";
 
+dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("API running");
-});
+// Serve static frontend
+app.use(express.static(path.join(__dirname, "../frontend")));
 
+// API routes
 app.use("/api/users", userRoutes);
 app.use("/api/progress", progressRoutes);
 app.use("/api/writing", writingRoutes);
@@ -29,11 +34,9 @@ app.use("/api/vocabulary", vocabularyRoutes);
 app.use("/api/tracking", trackingRoutes);
 app.use("/api/auth", authRoutes);
 
-
-// static frontend
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-app.use(express.static(path.join(__dirname, "../frontend")));
+// Homepage
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/index.html"));
+});
 
 export default app;
